@@ -1,4 +1,4 @@
-# Stock Anaylzer Dashboard
+# Stock Analyzer Dashboard
 
 
 ![language](https://img.shields.io/badge/language-python3.9-yellow?style=plastic&logo=appveyor)
