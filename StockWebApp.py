@@ -15,7 +15,7 @@ of your choice to analyze.\n
 Make sure all fields are filled out to view the most current information from Yahoo Finance.
 ''')
 
-image = Image.open("/Users/mylannguyen/PycharmProjects/cs1026/FinanceProject/stock_image.png")
+image = Image.open("stock_image.png")
 st.image(image, use_column_width=True)
 
 # Stock Language Dictionary
