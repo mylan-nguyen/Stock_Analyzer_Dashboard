@@ -119,7 +119,7 @@ num_shares = int_annual_income/dividend_rate
 st.text(int_annual_income)
 st.text(dividend_rate)
 st.text(num_shares)
-st.subheader(int_annual_income + " divide " + dividend_rate + " = " )
+st.subheader(int_annual_income + " divide " + dividend_rate )
 #st.subheader("To earn $"+ int_annual_income+ " a year, at a dividend rate of "+ dividend_rate+ ", you must have "+ num_shares+ " shares.\n")
 
 #market_price = my_info['regularMarketPrice']
