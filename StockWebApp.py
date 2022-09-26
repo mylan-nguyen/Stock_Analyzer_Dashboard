@@ -114,7 +114,8 @@ company_name = get_company_name(symbol.upper())
 obj = fy.Ticker(company_name)
 my_info = obj.info
 dividend_rate = my_info['dividendRate']
-num_shares = annual_income/dividend_rate
+#num_shares = annual_income/dividend_rate
+num_shares = 100
 print("To earn $", annual_income, " a year, at a dividend rate of ", dividend_rate, ", you must have ", num_shares, " shares.")
 
 market_price = my_info['regularMarketPrice']
