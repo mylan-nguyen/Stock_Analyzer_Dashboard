@@ -115,16 +115,18 @@ obj = fy.Ticker(company_name)
 my_info = obj.info
 dividend_rate = my_info['dividendRate']
 int_annual_income = int(annual_income)
-num_shares = round(int_annual_income/dividend_rate, 2)
+if dividend_rate != None:
+    num_shares = round(int_annual_income/dividend_rate, 2)
 
-st.subheader("How much do you need to invest to reach your annual income goal?")
-st.text("To earn $" + str(int_annual_income) +" a year, at a dividend rate of " + str(dividend_rate))
-st.text("you must have " + str(num_shares) + " shares.\n")
+    st.subheader("How much do you need to invest to reach your annual income goal?")
+    st.text("To earn $" + str(int_annual_income) +" a year, at a dividend rate of " + str(dividend_rate))
+    st.text("you must have " + str(num_shares) + " shares.\n")
 
-market_price = my_info['regularMarketPrice']
-investment = round(market_price*num_shares, 2)
-st.text("This is equivalent to investing $" + str(investment) + " in " + str(company_name) + " today!\n")
-
+    market_price = my_info['regularMarketPrice']
+    investment = round(market_price*num_shares, 2)
+    st.text("This is equivalent to investing $" + str(investment) + " in " + str(company_name) + " today!\n")
+else:
+    st.text("This stock does not give dividends.")
 #Display the close price
 st.header(company_name+" Close Price\n")
 st.line_chart(df['Close'])
