@@ -115,10 +115,11 @@ obj = fy.Ticker(company_name)
 my_info = obj.info
 dividend_rate = my_info['dividendRate']
 int_annual_income = int(annual_income)
+st.subheader("How much do you need to invest to reach your annual income goal?")
+
 if dividend_rate != None:
     num_shares = round(int_annual_income/dividend_rate, 2)
 
-    st.subheader("How much do you need to invest to reach your annual income goal?")
     st.text("To earn $" + str(int_annual_income) +" a year, at a dividend rate of " + str(dividend_rate))
     st.text("you must have " + str(num_shares) + " shares.\n")
 
