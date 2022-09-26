@@ -116,7 +116,7 @@ my_info = obj.info
 dividend_rate = my_info['dividendRate']
 int_annual_income = int(annual_income)
 num_shares = int_annual_income/dividend_rate
-st.subheader("To earn $"+ annual_income+ " a year, at a dividend rate of "+ dividend_rate+ ", you must have "+ num_shares+ " shares.\n")
+st.subheader("To earn $"+ int_annual_income+ " a year, at a dividend rate of "+ dividend_rate+ ", you must have "+ num_shares+ " shares.\n")
 
 market_price = my_info['regularMarketPrice']
 investment = market_price*num_shares
