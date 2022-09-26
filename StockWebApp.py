@@ -103,12 +103,22 @@ def get_data(symbol, start, end):
     return df.iloc[start_row:end_row+1, :]
 
 #Get the users input
-start, end, symbol = get_input()
+start, end, symbol, annual_income = get_input()
 
 #Get the data
 df = get_data(symbol, start, end)
 #Get the company name
 company_name = get_company_name(symbol.upper())
+
+#Display the investment required to earn x annual income in inputted stock
+my_info = symbol.info
+dividend_rate = my_info['dividendRate']
+num_shares = annual_income/dividend_rate
+print("To earn $", annual_income, " a year, at a dividend rate of ", dividend_rate, ", you must have ", num_shares, " shares.")
+
+market_price = my_info['regularMarketPrice']
+investment = market_price*num_shares
+print("This is equivalent to investing ", investment, " in ", symbol, " today!")
 
 #Display the close price
 st.header(company_name+" Close Price\n")
