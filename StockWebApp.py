@@ -118,11 +118,11 @@ int_annual_income = int(annual_income)
 num_shares = int_annual_income/dividend_rate
 
 st.subheader("How much do you need to invest to reach your annual income goal?")
-st.text("To earn $" + int_annual_income + " a year, at a dividend rate of " + dividend_rate + ", you must have " + num_shares + " shares.\n")
+st.text("To earn $" + str(int_annual_income) +" a year, at a dividend rate of " + str(dividend_rate) + ", you must have " + str(num_shares) + " shares.\n")
 
 market_price = my_info['regularMarketPrice']
 investment = market_price*num_shares
-st.text("This is equivalent to investing " + investment + " in " + company_name + " today!\n")
+st.text("This is equivalent to investing " + str(investment) + " in " + str(company_name) + " today!\n")
 
 #Display the close price
 st.header(company_name+" Close Price\n")
