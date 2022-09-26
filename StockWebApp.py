@@ -2,7 +2,6 @@
 
 # Import the libraries
 import yfinance as fy
-# import pandas_datareader.data as web
 import streamlit as st
 import pandas as pd
 from PIL import Image
@@ -58,7 +57,10 @@ def get_input():
     start_date = st.sidebar.text_input("Start Date", "2022-01-02")
     end_date = st.sidebar.text_input("End Date", "2022-07-29")
     stock_symbol = st.sidebar.text_input("Stock Symbol", "AMZN")
-    return start_date, end_date, stock_symbol
+
+    st.sidebar.subheader("Let's see how much money you need to invest today, to earn x amount of annual income from that stock!")
+    annual_income = st.sidebar.text_input("$")
+    return start_date, end_date, stock_symbol, annual_income
 
 #Create a function to get the company name
 def get_company_name(symbol):
