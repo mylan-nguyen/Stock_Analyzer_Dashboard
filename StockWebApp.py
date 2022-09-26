@@ -56,7 +56,7 @@ st.sidebar.header("Which stock would you like to analyze today?")
 def get_input():
     start_date = st.sidebar.text_input("Start Date", "2022-01-02")
     end_date = st.sidebar.text_input("End Date", "2022-07-29")
-    stock_symbol = st.sidebar.text_input("Stock Symbol", "AMZN")
+    stock_symbol = st.sidebar.text_input("Stock Symbol", "RY")
 
     st.sidebar.subheader("Let's see how much money you need to invest today, to earn x amount of annual income from that stock!")
     annual_income = st.sidebar.text_input("$")
@@ -111,14 +111,15 @@ df = get_data(symbol, start, end)
 company_name = get_company_name(symbol.upper())
 
 #Display the investment required to earn x annual income in inputted stock
-my_info = symbol.info
+obj = fy.Ticker(company_name)
+my_info = obj.info
 dividend_rate = my_info['dividendRate']
 num_shares = annual_income/dividend_rate
 print("To earn $", annual_income, " a year, at a dividend rate of ", dividend_rate, ", you must have ", num_shares, " shares.")
 
 market_price = my_info['regularMarketPrice']
 investment = market_price*num_shares
-print("This is equivalent to investing ", investment, " in ", symbol, " today!")
+print("This is equivalent to investing ", investment, " in ", company_name, " today!")
 
 #Display the close price
 st.header(company_name+" Close Price\n")
