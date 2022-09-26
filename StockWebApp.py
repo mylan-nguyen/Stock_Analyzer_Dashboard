@@ -59,7 +59,7 @@ def get_input():
     stock_symbol = st.sidebar.text_input("Stock Symbol", "RY")
 
     st.sidebar.subheader("Let's see how much money you need to invest today, to earn x amount of annual income from that stock!")
-    annual_income = st.sidebar.text_input("1000")
+    annual_income = st.sidebar.text_input("$", "1000")
     return start_date, end_date, stock_symbol, annual_income
 
 #Create a function to get the company name
@@ -116,11 +116,11 @@ my_info = obj.info
 dividend_rate = my_info['dividendRate']
 int_annual_income = int(annual_income)
 num_shares = int_annual_income/dividend_rate
-st.subheader("To earn $", annual_income, " a year, at a dividend rate of ", dividend_rate, ", you must have ", num_shares, " shares.")
+st.subheader("To earn $"+ annual_income+ " a year, at a dividend rate of "+ dividend_rate+ ", you must have "+ num_shares+ " shares.\n")
 
 market_price = my_info['regularMarketPrice']
 investment = market_price*num_shares
-st.subheader("This is equivalent to investing ", investment, " in ", company_name, " today!")
+st.subheader("This is equivalent to investing "+ investment+ " in "+ company_name+ " today!\n")
 
 #Display the close price
 st.header(company_name+" Close Price\n")
