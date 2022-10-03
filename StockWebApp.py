@@ -115,11 +115,13 @@ if dividend_rate != None:
     num_shares = round(int_annual_income/dividend_rate, 2)
 
     st.text("To earn $" + str(int_annual_income) +" a year, at a dividend rate of " + str(dividend_rate))
-    st.text("you must have " + str(num_shares) + " shares.\n")
+    shares = "{:,}".format(num_shares)
+    st.text("you must have " + shares + " shares.\n")
 
     market_price = my_info['regularMarketPrice']
     investment = round(market_price*num_shares, 2)
-    st.text("This is equivalent to investing $" + str(investment) + " in " + str(company_name) + " today!\n")
+    s = "{:,}".format(investment)
+    st.text("This is equivalent to investing $" + s + " in " + str(company_name) + " today!\n")
 else:
     st.text("This stock does not give dividends.")
 #Display the close price
