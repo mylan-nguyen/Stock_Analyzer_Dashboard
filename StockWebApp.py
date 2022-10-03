@@ -38,12 +38,6 @@ st.text("'The key thing to look out for when examining trading volume is spikes 
         "If a stock's price drops and the trading volume is high, it might mean that there is strength to the downward "
         "trend on the stock as opposed to a momentary blip (and vice versa if the price moves up).'")
 
-st.subheader("Rolling Mean (Moving Average): ")
-st.text("'Rolling mean/Moving Average (MA) smooths out price data by creating a constantly updated average price. "
-        "This is useful to cut down “noise” in our price chart. Furthermore, this Moving Average could act as "
-        "“Resistance” meaning from the downtrend and uptrend of stocks you could expect it will follow the trend "
-        "and less likely to deviate outside its resistance point.'")
-
 st.subheader("Expected Return: ")
 st.text("'Expected Return measures the mean, or expected value, of the probability distribution of investment returns. "
         "The expected return of a portfolio is calculated by multiplying the weight of each asset by its expected return "
@@ -140,13 +134,6 @@ st.line_chart(df['Volume'])
 st.header('Data Statistics')
 st.write(df.describe())
 
-#Calculate the Moving Average for the last 100 windows (100 days) of stocks closing price and
-#take the average for each of the window’s moving average
-close_px = df['Adj Close']
-mavg = close_px.rolling(window=100).mean()
-#Display the moving average
-st.header(company_name+" Moving Average\n")
-st.line_chart(mavg)
 
 #Calculate and display the stocks expected return
 rets = close_px / close_px.shift(1) - 1
