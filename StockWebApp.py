@@ -134,8 +134,8 @@ st.line_chart(df['Volume'])
 st.header('Data Statistics')
 st.write(df.describe())
 
-
 #Calculate and display the stocks expected return
+close_px = df['Adj Close']
 rets = close_px / close_px.shift(1) - 1
 st.header(company_name+" Return Rate\n")
 st.line_chart(rets)
