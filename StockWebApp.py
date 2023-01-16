@@ -104,6 +104,7 @@ df = get_data(symbol, start, end)
 #Get the company name
 company_name = get_company_name(symbol.upper())
 
+'''
 #Display the investment required to earn x annual income in inputted stock
 obj = fy.Ticker(company_name)
 my_info = obj.info
@@ -124,6 +125,8 @@ if dividend_rate != None:
     st.text("This is equivalent to investing $" + s + " in " + str(company_name) + " today!\n")
 else:
     st.text("This stock does not give dividends.")
+'''
+
 #Display the close price
 st.header(company_name+" Close Price\n")
 st.line_chart(df['Close'])
