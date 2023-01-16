@@ -106,9 +106,8 @@ company_name = get_company_name(symbol.upper())
 
 #Display the investment required to earn x annual income in inputted stock
 obj = fy.Ticker(company_name)
-my_info = obj.info
-df = obj.get_dividends()
-dividend_rate = df.iloc[-1]
+my_info = obj.get_info()
+dividend_rate = my_info['dividendYield']
 int_annual_income = int(annual_income)
 st.subheader("How much do you need to invest to reach your annual income goal?")
 
