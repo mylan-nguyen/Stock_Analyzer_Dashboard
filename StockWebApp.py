@@ -51,10 +51,7 @@ def get_input():
     start_date = st.sidebar.text_input("Start Date", "2022-01-02")
     end_date = st.sidebar.text_input("End Date", "2022-07-29")
     stock_symbol = st.sidebar.text_input("Stock Symbol", "RY")
-
-    st.sidebar.subheader("Let's see how much money you need to invest today, to earn x amount of annual income from that stock!")
-    annual_income = st.sidebar.text_input("$", "1000")
-    return start_date, end_date, stock_symbol, annual_income
+    return start_date, end_date, stock_symbol
 
 #Create a function to get the company name
 def get_company_name(symbol):
@@ -103,27 +100,6 @@ start, end, symbol, annual_income = get_input()
 df = get_data(symbol, start, end)
 #Get the company name
 company_name = get_company_name(symbol.upper())
-
-#Display the investment required to earn x annual income in inputted stock
-obj = fy.Ticker(company_name)
-my_info = obj.get_info()
-dividend_rate = my_info['dividendYield']
-int_annual_income = int(annual_income)
-st.subheader("How much do you need to invest to reach your annual income goal?")
-
-if dividend_rate != None:
-    num_shares = round(int_annual_income/dividend_rate, 2)
-
-    st.text("To earn $" + str(int_annual_income) +" a year, at a dividend rate of " + str(dividend_rate))
-    shares = "{:,}".format(num_shares)
-    st.text("you must have " + shares + " shares.\n")
-
-    market_price = my_info['regularMarketPrice']
-    investment = round(market_price*num_shares, 2)
-    s = "{:,}".format(investment)
-    st.text("This is equivalent to investing $" + s + " in " + str(company_name) + " today!\n")
-else:
-    st.text("This stock does not give dividends.")
 
 #Display the close price
 st.header(company_name+" Close Price\n")
