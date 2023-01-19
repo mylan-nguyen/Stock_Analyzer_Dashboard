@@ -94,7 +94,7 @@ def get_data(symbol, start, end):
     return df.iloc[start_row:end_row+1, :]
 
 #Get the users input
-start, end, symbol, annual_income = get_input()
+start, end, symbol = get_input()
 
 #Get the data
 df = get_data(symbol, start, end)
