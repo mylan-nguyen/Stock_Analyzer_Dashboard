@@ -6,7 +6,7 @@ import streamlit as st
 import pandas as pd
 from PIL import Image
 
-# Add a title and an image
+# Add a title and an image for landing page
 st.title('Welcome to Your Stock Market Dashboard\n')
 st.write('''
 Let's **Visually** show data on a stock! Please enter a start date and end date of a stock 
